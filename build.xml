@@ -206,7 +206,6 @@
 		<delete file="${catalina.home}/webapps/${webapp.name}.war" />
 		<delete dir="${catalina.home}/webapps/${webapp.name}/" />
 		<copy file="${build}/${webapp.name}.war" tofile="${catalina.home}/webapps/${webapp.name}.war" />
-		<antcall target="tomcat-start"/>
 	</target>
 
 </project>
