@@ -1,0 +1,48 @@
+<daylightTimes>
+	<year no="2016">
+		<timezone timeZoneId="4" startDateTime="2016-03-13 02:00:00" endDateTime="2016-11-06 02:00:00" diffHours="1"/><!-- (GMT-09:00) Alaska -->
+		<timezone timeZoneId="5" startDateTime="2016-03-13 02:00:00" endDateTime="2016-11-06 02:00:00" diffHours="1"/><!-- (GMT-08:00) Pacific Time (US & Canada) -->
+		<timezone timeZoneId="6" startDateTime="2016-03-13 02:00:00" endDateTime="2016-11-06 02:00:00" diffHours="1"/><!-- (GMT-08:00) Tijuana, Baja California -->
+		<timezone timeZoneId="8" startDateTime="2016-04-03 02:00:00" endDateTime="2016-10-30 02:00:00" diffHours="1"/><!-- (GMT-07:00) Chihuahua, La Paz, Mazatlan -->
+		<timezone timeZoneId="9" startDateTime="2016-03-13 02:00:00" endDateTime="2016-11-06 02:00:00" diffHours="1"/><!-- (GMT-07:00) Mountain Time (US & Canada) -->
+		<timezone timeZoneId="11" startDateTime="2016-03-13 02:00:00" endDateTime="2016-11-06 02:00:00" diffHours="1"/><!-- (GMT-06:00) Central Time (US & Canada) -->
+		<timezone timeZoneId="12" startDateTime="2016-04-03 02:00:00" endDateTime="2016-10-30 02:00:00" diffHours="1"/><!-- (GMT-06:00) Guadalajara, Mexico City, Monterrey -->
+		<timezone timeZoneId="15" startDateTime="2016-03-13 02:00:00" endDateTime="2016-11-06 02:00:00" diffHours="1"/><!-- (GMT-05:00) Eastern Time (US & Canada) -->
+		<timezone timeZoneId="16" startDateTime="2016-03-13 02:00:00" endDateTime="2016-11-06 02:00:00" diffHours="1"/><!-- (GMT-05:00) Indiana (East) -->
+		<timezone timeZoneId="17" startDateTime="2016-03-13 02:00:00" endDateTime="2016-11-06 02:00:00" diffHours="1"/><!-- (GMT-04:00) Atlantic Time (Canada) -->
+		<timezone timeZoneId="20" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT-04:00) Santiago -->
+		<timezone timeZoneId="21" startDateTime="2016-03-13 02:00:00" endDateTime="2016-11-06 02:00:00" diffHours="1"/><!-- (GMT-03:30) Newfoundland -->
+		<timezone timeZoneId="22" startDateTime="2016-10-16 00:00:00" endDateTime="2016-02-21 00:00:00" diffHours="1"/><!-- (GMT-03:00) Brasilia -->
+		<timezone timeZoneId="24" startDateTime="2016-03-26 22:00:00" endDateTime="2016-10-29 23:00:00" diffHours="1"/><!-- (GMT-03:00) Greenland -->
+		<timezone timeZoneId="25" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT-03:00) Montevideo -->
+		<timezone timeZoneId="26" startDateTime="2016-03-13 02:00:00" endDateTime="2016-11-06 02:00:00" diffHours="1"/><!-- (GMT-02:00) Mid-Atlantic -->
+		<timezone timeZoneId="28" startDateTime="2016-03-27 00:00:00" endDateTime="2016-10-30 01:00:00" diffHours="1"/><!-- (GMT-01:00) Azores -->
+		<timezone timeZoneId="30" startDateTime="2016-03-27 01:00:00" endDateTime="2016-10-30 02:00:00" diffHours="1"/><!-- (GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London -->
+		<timezone timeZoneId="31" startDateTime="2016-03-27 02:00:00" endDateTime="2016-10-30 03:00:00" diffHours="1"/><!-- (GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna -->
+		<timezone timeZoneId="32" startDateTime="2016-03-27 02:00:00" endDateTime="2016-10-30 03:00:00" diffHours="1"/><!-- (GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague -->
+		<timezone timeZoneId="33" startDateTime="2016-03-27 02:00:00" endDateTime="2016-10-30 03:00:00" diffHours="1"/><!-- (GMT+01:00) Brussels, Copenhagen, Madrid, Paris -->
+		<timezone timeZoneId="34" startDateTime="2016-03-27 02:00:00" endDateTime="2016-10-30 03:00:00" diffHours="1"/><!-- (GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb -->
+		<timezone timeZoneId="35" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+01:00) West Central Africa -->
+		<timezone timeZoneId="36" startDateTime="2016-04-01 00:00:00" endDateTime="2016-10-28 01:00:00" diffHours="1"/><!-- (GMT+02:00) Amman -->
+		<timezone timeZoneId="37" startDateTime="2016-03-27 03:00:00" endDateTime="2016-10-30 04:00:00" diffHours="1"/><!-- (GMT+02:00) Athens, Bucharest, Istanbul -->
+		<timezone timeZoneId="38" startDateTime="2016-03-27 00:00:00" endDateTime="2016-10-30 00:00:00" diffHours="1"/><!-- (GMT+02:00) Beirut -->
+		<timezone timeZoneId="39" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+02:00) Cairo -->
+		<timezone timeZoneId="41" startDateTime="2016-03-27 03:00:00" endDateTime="2016-10-30 04:00:00" diffHours="1"/><!-- (GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius -->
+		<timezone timeZoneId="42" startDateTime="2016-03-25 02:00:00" endDateTime="2016-10-30 02:00:00" diffHours="1"/><!-- (GMT+02:00) Jerusalem -->
+		<timezone timeZoneId="43" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+02:00) Minsk -->
+		<timezone timeZoneId="44" startDateTime="2016-04-03 02:00:00" endDateTime="2016-09-04 02:00:00" diffHours="1"/><!-- (GMT+02:00) Windhoek -->
+		<timezone timeZoneId="46" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+03:00) Moscow, St. Petersburg, Volgograd -->
+		<timezone timeZoneId="49" startDateTime="2016-03-21 00:00:00" endDateTime="2016-09-21 00:00:00" diffHours="1"/><!-- (GMT+03:30) Tehran -->
+		<timezone timeZoneId="51" startDateTime="2016-03-27 04:00:00" endDateTime="2016-10-30 05:00:00" diffHours="1"/><!-- (GMT+04:00) Baku -->
+		<timezone timeZoneId="52" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+04:00) Yerevan -->
+		<timezone timeZoneId="54" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+05:00) Yekaterinburg -->
+		<timezone timeZoneId="59" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+06:00) Almaty, Novosibirsk -->
+		<timezone timeZoneId="63" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+07:00) Krasnoyarsk -->
+		<timezone timeZoneId="71" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+09:00) Yakutsk -->
+		<timezone timeZoneId="75" startDateTime="2016-10-02 02:00:00" endDateTime="2016-04-03 03:00:00" diffHours="1"/><!-- (GMT+10:00) Canberra, Melbourne, Sydney -->
+		<timezone timeZoneId="76" startDateTime="2016-10-02 02:00:00" endDateTime="2016-04-03 03:00:00" diffHours="1"/><!-- (GMT+10:00) Hobart -->
+		<timezone timeZoneId="78" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+10:00) Vladivostok -->
+		<timezone timeZoneId="79" startDateTime="" endDateTime="" diffHours="0"/><!-- (GMT+11:00) Magadan, Solomon Is., New Caledonia -->
+		<timezone timeZoneId="80" startDateTime="2016-09-25 02:00:00" endDateTime="2016-04-03 02:00:00" diffHours="1"/><!-- (GMT+12:00) Auckland, Wellington -->
+	</year>
+</daylightTimes>

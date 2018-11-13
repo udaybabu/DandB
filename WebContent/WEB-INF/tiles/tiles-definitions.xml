@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="masterTemplate" template="/views/template/template.jsp">
+		<put-attribute name="title" value="Welcome to dnb" />
+		<put-attribute name="header" value="/views/template/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/views/template/footer.jsp" />
+	</definition>
+	
+	<definition name="siteTemplate" template="/views/site/template/template.jsp">
+		<put-attribute name="title" value="Welcome to dnb" />
+		<put-attribute name="header" value="/views/site/template/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/views/site/template/footer.jsp" />
+	</definition>
+	
+	<definition name="login" template="/views/login.jsp">
+		<put-attribute name="title" value="Login" />
+	</definition>
+
+	<definition name="dashboard" extends="masterTemplate">
+		<put-attribute name="title" value="Dashboard" />
+		<put-attribute name="body" value="/views/dashboard.jsp" />
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+
+	<!-- Enquiry Pool -->
+	
+	<definition name="enquiryPool" extends="masterTemplate">
+		<put-attribute name="title" value="Enquiry Pool" />
+		<put-attribute name="body" value="/views/enquiry/enquiryPoolReport.jsp" />
+	</definition>
+	
+	<definition name="enquiryLinkReport" extends="masterTemplate">
+		<put-attribute name="title" value="Enquiry Report" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="body" value="/views/enquiry/enquiryLinkReport.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="subCustomerCreate" extends="masterTemplate">
+		<put-attribute name="title" value="Create SubCustomer" />
+		<put-attribute name="body" value="/views/subCustomer/subCustomerCreate.jsp" />
+	</definition>
+	
+	<definition name="subCustomer" extends="masterTemplate">
+		<put-attribute name="title" value="SubCustomer List" />
+		<put-attribute name="body" value="/views/subCustomer/subCustomerList.jsp" />
+	</definition>
+	
+	<definition name="subCustomerEdit" extends="masterTemplate">
+		<put-attribute name="title" value="SubCustomer Edit" />
+		<put-attribute name="body" value="/views/subCustomer/subCustomerEdit.jsp" />
+	</definition>
+
+   <definition name="associateSubCustomerList" extends="masterTemplate">
+		<put-attribute name="title" value="Associate SubCustomer" />
+		<put-attribute name="body" value="/views/subCustomer/associateSubCustomer.jsp" />
+   </definition>
+	
+	 <definition name="associateSubCustomerCreate" extends="masterTemplate">
+		<put-attribute name="title" value="Associate SubCustomer Create" />
+		<put-attribute name="body" value="/views/subCustomer/associateSubCustomerCreate.jsp" />
+    </definition>
+   
+   <definition name="associateSubCustomerEdit" extends="masterTemplate">
+		<put-attribute name="title" value="Associate SubCustomer Edit" />
+		<put-attribute name="body" value="/views/subCustomer/associateSubCustomerEdit.jsp" />
+    </definition>
+    
+    <definition name="uploadSubCustomer" extends="masterTemplate">
+		<put-attribute name="title" value="Upload SubCustomer " />
+		<put-attribute name="body" value="/views/subCustomer/subCustomerUpload.jsp" />
+    </definition>
+    
+</tiles-definitions>

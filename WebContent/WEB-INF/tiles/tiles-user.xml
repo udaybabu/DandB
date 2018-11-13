@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- User -->
+	<definition name="userCreate" extends="masterTemplate">
+		<put-attribute name="title" value="User Create" />
+		<put-attribute name="body" value="/views/user/userCreate.jsp" />
+	</definition>
+	
+	<definition name="userEdit" extends="masterTemplate">
+		<put-attribute name="title" value="User Edit" />
+		<put-attribute name="body" value="/views/user/userEdit.jsp" />
+	</definition>
+	 
+	<definition name="userList" extends="masterTemplate">
+		<put-attribute name="title" value="User List" />
+		<put-attribute name="body" value="/views/user/userList.jsp" />
+	</definition>
+	
+	<definition name="userUpload" extends="masterTemplate">
+		<put-attribute name="title" value="Upload User" />
+		<put-attribute name="body" value="/views/user/userUpload.jsp" />
+	</definition>
+	
+	<definition name="userPassChange" extends="masterTemplate">
+		<put-attribute name="title" value="Change Password" />
+		<put-attribute name="body" value="/views/user/userPassChange.jsp" />
+	</definition>
+	
+</tiles-definitions>

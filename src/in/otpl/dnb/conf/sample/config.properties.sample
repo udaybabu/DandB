@@ -1,0 +1,71 @@
+base.server.url=@base.server.url@
+
+#FCM Push Notification
+push.scheduler=@push.scheduler@
+fcm.server.url=@fcm.server.url@
+fcm.server.api.key=@fcm.server.api.key@
+#Mobile push 10 sec interval in miliseconds
+mobile.push.notification.scheduler.run.interval=@mobile.push.notification.scheduler.run.interval@
+#IOS silent push 15 min interval in miliseconds
+mobile.silent.push.notification.scheduler.run.interval=@mobile.silent.push.notification.scheduler.run.interval@
+
+#Google Map
+google.map.key=@google.map.key@
+version=@version@
+
+#email 1 min interval in miliseconds
+email.scheduler=@email.scheduler@
+email.scheduler.run.interval=@email.scheduler.run.interval@
+email.smtp.host=@email.smtp.host@
+email.smtp.port=@email.smtp.port@
+email.auth=@email.auth@
+email.smtp.username=@email.smtp.username@
+email.smtp.password=@email.smtp.password@
+email.sender.id=@email.sender.id@
+email.error.to=@email.error.to@
+email.error.cc=@email.error.cc@
+email.error.subj=@email.error.subj@ 
+email.support=@email.support@
+email.bcc=@email.bcc@
+
+#SMS 1 min interval in miliseconds
+sms.scheduler=@sms.scheduler@
+sms.scheduler.run.interval=@sms.scheduler.run.interval@
+sms.api.url.india=@sms.api.url.india@
+sms.api.username.india=@sms.api.username.india@
+sms.api.password.india=@sms.api.password.india@
+sms.api.sender.india=@sms.api.sender.india@
+
+#media
+image.storage.base.directory=@image.storage.base.directory@
+file.storage.base.directory=@file.storage.base.directory@
+pdf.storage.base.directory=@pdf.storage.base.directory@
+
+dnb.cust.id=@dnb.cust.id@
+#DNB Master Data Fetch
+scheduler.master.data.fetch=@scheduler.master.data.fetch@
+scheduler.master.data.fetch.initial.delay=@scheduler.master.data.fetch.initial.delay@
+scheduler.master.data.fetch.interval=@scheduler.master.data.fetch.interval@
+
+#DNB Enquiry Pool
+scheduler.enquiry.pool.fetch=@scheduler.enquiry.pool.fetch@
+scheduler.enquiry.pool.fetch.interval=@scheduler.enquiry.pool.fetch.interval@
+
+#PDF CREATION SCHEDULER 
+scheduler.pdf.creator=@scheduler.pdf.creator@
+scheduler.pdf.creator.interval=@scheduler.pdf.creator.interval@
+
+#DATA MANIPULATER SCHEDULER
+scheduler.data.manipulate=@scheduler.data.manipulate@
+scheduler.data.manipulate.interval=@scheduler.data.manipulate.interval@
+
+#ENQUIRY COMPLETITION SCHEDULER
+scheduler.enquiry.data.completion=@scheduler.enquiry.data.completion@
+scheduler.enquiry.data.completion.interval=@scheduler.enquiry.data.completion.interval@
+
+#REASSIGNMENT SCHEDULER 
+scheduler.reassignment=@scheduler.reassignment@
+scheduler.reassignment.interval=@scheduler.reassignment.interval@
+
+logo.url.dnb=/home/akash/dnb/server/webapp/WebRoot/site/images/logo.png
+logo.url.orient=/home/akash/dnb/server/webapp/WebRoot/site/images/logo_orient.png

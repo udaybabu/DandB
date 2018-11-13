@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="err-400" extends="siteTemplate">
+		<put-attribute name="title" value="HTTP Status 400 - Bad Request" />
+		<put-attribute name="body" value="/views/common/err-400.jsp" />
+	</definition>
+	
+	<definition name="err-401" extends="siteTemplate">
+		<put-attribute name="title" value="HTTP Status 401 - Not Authorized" />
+		<put-attribute name="body" value="/views/common/err-401.jsp" />
+	</definition>
+	
+	<definition name="err-404" extends="siteTemplate">
+		<put-attribute name="title" value="HTTP Status 404 - Not Found" />
+		<put-attribute name="body" value="/views/common/err-404.jsp" />
+	</definition>
+	
+	<definition name="err-405" extends="siteTemplate">
+		<put-attribute name="title" value="HTTP Status 405 - Request method not supported" />
+		<put-attribute name="body" value="/views/common/err-405.jsp" />
+	</definition>
+	
+	<definition name="err-500" extends="masterTemplate">
+		<put-attribute name="title" value="HTTP Status 500 - Internal Server Error" />
+		<put-attribute name="body" value="/views/common/err-500.jsp" />
+	</definition>
+	
+	<definition name="err-502" extends="masterTemplate">
+		<put-attribute name="title" value="HTTP Status 502 - Bad Gateway" />
+		<put-attribute name="body" value="/views/common/err-502.jsp" />
+	</definition>
+	
+	<definition name="err-503" extends="masterTemplate">
+		<put-attribute name="title" value="HTTP Status 503 - Service Unavailable" />
+		<put-attribute name="body" value="/views/common/err-503.jsp" />
+	</definition>
+	
+
+</tiles-definitions>

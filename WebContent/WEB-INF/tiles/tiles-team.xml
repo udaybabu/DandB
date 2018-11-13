@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Team -->
+	<definition name="teamList" extends="masterTemplate">
+		<put-attribute name="title" value="Team List" />
+		<put-attribute name="body" value="/views/team/teamList.jsp" />
+	</definition>
+	
+	<definition name="teamEdit" extends="masterTemplate">
+		<put-attribute name="title" value="Team Edit" />
+		<put-attribute name="body" value="/views/team/teamEdit.jsp" />
+	</definition>
+	
+	<definition name="teamCreate" extends="masterTemplate">
+		<put-attribute name="title" value="Team Create" />
+		<put-attribute name="body" value="/views/team/teamCreate.jsp" />
+	</definition>
+	
+</tiles-definitions>

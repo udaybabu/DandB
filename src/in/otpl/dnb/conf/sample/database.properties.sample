@@ -1,0 +1,14 @@
+jdbc.driverClassName=@db.drive.class.name@
+jdbc.url=@db.url@
+jdbc.username=@db.username@
+jdbc.password=@db.password@
+jdbc.initialSize=@db.connection.initialSize@
+jdbc.maxActive=@db.connection.maxActive@
+
+#DNB_DB_CONFIGURATION_DETAILS 
+dnb.db.url=@dnb.db.url@
+dnb.db.port=@dnb.db.port@
+dnb.db.name=@dnb.db.name@
+dnb.db.user=@dnb.db.user@
+dnb.db.password=@dnb.db.password@
+dnb.db.class=@dnb.db.class@

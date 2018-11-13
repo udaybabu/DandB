@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/task 
+        http://www.springframework.org/schema/task/spring-task-4.2.xsd ">
+
+	<context:annotation-config />
+	<task:annotation-driven />
+	
+    <!--
+    	1. fixedRate: makes Spring run the task on periodic intervals even if the last invocation may be still running.
+    	2. fixedDelay: specifically controls the next execution time when the last execution finishes.
+    	3. cron: is a feature originating from Unix cron utility and has various options based on your requirements.
+    	#{applicationProps['cron.expression']}
+    -->
+    <bean id="commonScheduler" class="in.otpl.dnb.scheduler.CommonSchedulerService" autowire="no"/>
+    <task:scheduled-tasks>
+        <task:scheduled ref="commonScheduler" method="masterDataFetch" initial-delay="#{confProps['scheduler.master.data.fetch.initial.delay']}" fixed-delay="#{confProps['scheduler.master.data.fetch.interval']}"/>
+        <task:scheduled ref="commonScheduler" method="enquiryPoolFetch" initial-delay="0" fixed-delay="#{confProps['scheduler.enquiry.pool.fetch.interval']}"/>
+        <task:scheduled ref="commonScheduler" method="pdfCreator" initial-delay="0" fixed-delay="#{confProps['scheduler.pdf.creator.interval']}"/>
+        <task:scheduled ref="commonScheduler" method="dataManipulator" initial-delay="0" fixed-delay="#{confProps['scheduler.data.manipulate.interval']}"/>
+        <task:scheduled ref="commonScheduler" method="enquiryDataCompletion" initial-delay="0" fixed-delay="#{confProps['scheduler.enquiry.data.completion.interval']}"/>
+        <task:scheduled ref="commonScheduler" method="reassignment" initial-delay="0" fixed-delay="#{confProps['scheduler.reassignment.interval']}"/>
+    </task:scheduled-tasks>
+    
+</beans>  

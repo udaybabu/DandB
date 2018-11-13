@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px; 
+  background:#f9f9f9;
+}
+
+body.login
+{
+background:#28353e;	
+}
+
+.table{
+	font-size:14px;
+}
+.login .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; 
+  line-height: 60px; 
+  background:none;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; 
+  line-height: 60px; 
+  background:#3e3e3e;
+}
+
+.pagination{
+	margin:0;
+}
+
+.panel-footer {
+  
+    background-color: #fff;
+  
+}
+
+.login .form-control{
+	background: none;
+	border: 1px solid #35424b;
+	height:50px;
+	margin-bottom:30px;
+	color:#f7f7f7;
+}
+
+.login .form-control:focus {  border-color: #005172;
+  box-shadow: none;
+}
+
+.btn-login{
+	width:100%;
+	background:#005172;
+	padding:14px 6px;
+	border-color: #005172;
+}
+
+.login ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #49555d;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #49555d;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #49555d;
+}
+	
+.btn-submit{
+	background:#054f7a;
+color:#fff;}
+
+.navbar-brand{
+padding:1px 15px;
+}
+
+.navbar-default {
+    background-color: #fff;
+    border-color: #e7e7e7;}
+	
+.panel-default>.panel-heading {
+    color: #015172;
+    background-color: #fff;
+    border-color: #015172;}
+
+.panel-default {
+    border-color: #015172;
+}
+
+
+.app .form-control:focus {  border-color: #3fcf7f;
+  box-shadow: inset 0 1px 1px rgba(0, 178, 89, 0.075), 0px 3px 2px 0px rgba(0, 178, 89, 0.6);
+}
+
+label{
+	font-weight:400;}
+
+.btn-show{
+		background:#015172;
+border-radius:2px;
+color:#fff;}
+
+.btn-show:hover, .btn-show:active, .btn-show:focus{
+	color:#fff  !important;
+	
+	
+
+

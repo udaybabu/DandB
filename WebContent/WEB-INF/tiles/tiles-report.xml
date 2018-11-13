@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="reportUserTracking" extends="masterTemplate">
+		<put-attribute name="title" value="User(s) Tracking Report" />
+		<put-attribute name="body"	value="/views/report/reportUserTracking.jsp" />
+	</definition>
+	
+	<definition name="reportLogin" extends="masterTemplate">
+		<put-attribute name="title" value="Login Report" />
+		<put-attribute name="body"	value="/views/report/reportLogin.jsp" />
+	</definition>
+	
+	<definition name="reportAllUserMap" extends="masterTemplate">
+		<put-attribute name="title" value="All User Map" />
+		<put-attribute name="body" value="/views/report/allUserMap.jsp" />
+	</definition>
+
+	<definition name="reportAudit" extends="masterTemplate">
+		<put-attribute name="title" value="Audit Report" />
+		<put-attribute name="body" value="/views/report/reportAudit.jsp" />
+	</definition>
+
+    <definition name="loginDetails" extends="masterTemplate">
+		<put-attribute name="title" value="Log In Details" />
+		<put-attribute name="body" value="/views/report/loginDetails.jsp" />
+	</definition>
+	
+</tiles-definitions>
