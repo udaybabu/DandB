@@ -209,12 +209,4 @@
 		<antcall target="tomcat-start"/>
 	</target>
 
-	<target name="tomcat-start" depends="init">
-		<exec executable="${catalina.home}/bin/startup.${ext}" spawn="true"/>
-	</target>
-
-	<target name="tomcat-stop" depends="init">
-		<exec executable="${catalina.home}/bin/shutdown.${ext}" spawn="true"/>
-	</target>
-
 </project>
