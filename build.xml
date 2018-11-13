@@ -1,211 +1,220 @@
 <project name="dnb" default="war" basedir="./../">
-	
-	<target name="init">
-		<tstamp />
-		<property environment="env"/>
-		<condition property="ext" value="bat" else="sh">
-			<os family="windows"/>
-		</condition>
-		<property name="build.properties.file" value="${basedir}/build/build.properties"/>
-		<property name="webapp.name" value="dnb" />
-		<property name="build" value="build" />
-		<property name="otpl.dist" value="${basedir}/dist/${webapp.name}" />
-		<property name="otpl.dist.src" value="${otpl.dist}/src" />
-		<property name="otpl.src" value="${basedir}/src" />
-		<property name="otpl.webcontent" value="${basedir}/WebContent" />
-		<property name="otpl.dist.webinf" value="${otpl.dist}/WEB-INF" />
-		<property name="otpl.webinf" value="${otpl.webcontent}/WEB-INF" />
-		<property name="otpl.dist.resources" value="${otpl.dist}/resources" />
-		<property name="otpl.resources" value="${otpl.webcontent}/resources" />
-		<property name="otpl.dist.views" value="${otpl.dist}/views" />
-		<property name="otpl.views" value="${otpl.webcontent}/views" />
-		<property name="otpl.class" value="${otpl.dist.webinf}/classes" />
-		
-		<property name="catalina.home" value="${env.CATALINA_HOME}"/>
-	</target>
-
-	<target name="clean">
-		<!--<delete dir="${otpl.dist}/" />-->
-		<delete dir="${basedir}/dist" />
-	</target>
-
-	<path id="otpl.classpath">
-		<fileset dir="${omt.lib}">
-			<include name="**/*.jar" />
-			<include name="**/*.zip" />
-		</fileset>
-	</path>
-
-	<target name="mkdirs" depends="clean,init" description="">
-		<mkdir dir="${otpl.dist}" />
-		<mkdir dir="${otpl.dist.src}" />
-		<mkdir dir="${otpl.dist.webinf}" />
-		<mkdir dir="${otpl.dist.resources}" />
-		<mkdir dir="${otpl.dist.views}" />
-		<mkdir dir="${otpl.class}" />
-	</target>
-
-	<target name="copysrc" depends="mkdirs" description="">
-		<copy todir="${otpl.dist.src}">
-			<fileset dir="${otpl.src}" />
-		</copy>
-	</target>
-
-	<target name="copyresources" depends="copysrc,setup_config_properties" description="">
-		<copy todir="${otpl.dist.webinf}">
-			<fileset dir="${otpl.webinf}" />
-		</copy>
-		
-		<copy todir="${otpl.dist.resources}">
-			<fileset dir="${otpl.resources}" />
-		</copy>
-		
-		<copy todir="${otpl.dist.views}">
-			<fileset dir="${otpl.views}" />
-		</copy>
-
-		<delete dir="${otpl.class}" />
-		<mkdir dir="${otpl.class}" />
-	</target>
-
-	<target name="setup_config_properties">
-		<delete file="${otpl.src}/in/otpl/dnb/conf/database.properties"/>
-		<copy file="${otpl.src}/in/otpl/dnb/conf/sample/database.properties.sample" toFile="${otpl.src}/in/otpl/dnb/conf/database.properties"/>
-		<replace file="${otpl.src}/in/otpl/dnb/conf/database.properties" propertyFile="${build.properties.file}">
-			<replaceFilter token="@db.drive.class.name@" property="db.drive.class.name"/>
-			<replaceFilter token="@db.url@" property="db.url"/>
-			<replaceFilter token="@db.username@" property="db.username"/>
-			<replaceFilter token="@db.password@" property="db.password"/>
-			<replaceFilter token="@db.connection.initialSize@" property="db.connection.initialSize"/>
-			<replaceFilter token="@db.connection.maxActive@" property="db.connection.maxActive"/>
-			<!-- D&B DB -->
-			<replaceFilter token="@dnb.db.url@" property="dnb.db.url"/>
-			<replaceFilter token="@dnb.db.port@" property="dnb.db.port"/>
-			<replaceFilter token="@dnb.db.name@" property="dnb.db.name"/>
-			<replaceFilter token="@dnb.db.user@" property="dnb.db.user"/>
-			<replaceFilter token="@dnb.db.password@" property="dnb.db.password"/>
-			<replaceFilter token="@dnb.db.class@" property="dnb.db.class"/>
-		</replace>
-		<delete file="${otpl.src}/in/otpl/dnb/conf/config.properties"/>
-		<copy file="${otpl.src}/in/otpl/dnb/conf/sample/config.properties.sample" toFile="${otpl.src}/in/otpl/dnb/conf/config.properties"/>
-		<replace file="${otpl.src}/in/otpl/dnb/conf/config.properties" propertyFile="${build.properties.file}">
-			<replaceFilter token="@base.server.url@" property="base.server.url"/>
-			<!-- Push -->
-			<replaceFilter token="@push.scheduler@" property="push.scheduler"/>
-			<replaceFilter token="@fcm.server.url@" property="fcm.server.url"/>
-			<replaceFilter token="@fcm.server.api.key@" property="fcm.server.api.key"/>
-			<replaceFilter token="@mobile.push.notification.scheduler.run.interval@" property="mobile.push.notification.scheduler.run.interval"/>
-			<replaceFilter token="@mobile.silent.push.notification.scheduler.run.interval@" property="mobile.silent.push.notification.scheduler.run.interval"/>
-			
-			<!-- Google Map -->
-			<replaceFilter token="@google.map.key@" property="google.map.key"/>
-			<replaceFilter token="@version@" property="version"/>
-			
-			<!-- email -->
-			<replaceFilter token="@email.scheduler@" property="email.scheduler"/>
-			<replaceFilter token="@email.scheduler.run.interval@" property="email.scheduler.run.interval"/>
-			<replaceFilter token="@email.smtp.host@" property="email.smtp.host"/>
-			<replaceFilter token="@email.smtp.port@" property="email.smtp.port"/>
-			<replaceFilter token="@email.auth@" property="email.auth"/>
-			<replaceFilter token="@email.smtp.username@" property="email.smtp.username"/>
-			<replaceFilter token="@email.smtp.password@" property="email.smtp.password"/>
-			<replaceFilter token="@email.sender.id@" property="email.sender.id"/>
-			<replaceFilter token="@email.error.to@" property="email.error.to"/>
-			<replaceFilter token="@email.error.cc@" property="email.error.cc"/>
-			<replaceFilter token="@email.error.subj@" property="email.error.subj"/>
-			<replaceFilter token="@email.support@" property="email.support"/>
-			<replaceFilter token="@email.bcc@" property="email.bcc"/>
-			<!-- SMS -->
-			<replaceFilter token="@sms.scheduler@" property="sms.scheduler"/>
-			<replaceFilter token="@sms.scheduler.run.interval@" property="sms.scheduler.run.interval"/>
-			<replaceFilter token="@sms.api.url.india@" property="sms.api.url.india"/>
-			<replaceFilter token="@sms.api.username.india@" property="sms.api.username.india"/>
-			<replaceFilter token="@sms.api.password.india@" property="sms.api.password.india"/>
-			<replaceFilter token="@sms.api.sender.india@" property="sms.api.sender.india"/>
-			<!-- Media -->
-			<replaceFilter token="@image.storage.base.directory@" property="image.storage.base.directory"/>
-			<replaceFilter token="@file.storage.base.directory@" property="file.storage.base.directory"/>
-			<replaceFilter token="@pdf.storage.base.directory@" property="pdf.storage.base.directory"/>
-			<!-- DNB Files -->
-			<replaceFilter token="@dnb.cust.id@" property="dnb.cust.id"/>
-			<replaceFilter token="@scheduler.master.data.fetch@" property="scheduler.master.data.fetch"/>
-			<replaceFilter token="@scheduler.master.data.fetch.initial.delay@" property="scheduler.master.data.fetch.initial.delay"/>
-			<replaceFilter token="@scheduler.master.data.fetch.interval@" property="scheduler.master.data.fetch.interval"/>
-			<replaceFilter token="@scheduler.enquiry.pool.fetch@" property="scheduler.enquiry.pool.fetch"/>
-			<replaceFilter token="@scheduler.enquiry.pool.fetch.interval@" property="scheduler.enquiry.pool.fetch.interval"/>
-			<replaceFilter token="@scheduler.pdf.creator@" property="scheduler.pdf.creator"/>
-			<replaceFilter token="@scheduler.pdf.creator.interval@" property="scheduler.pdf.creator.interval"/>
-			<replaceFilter token="@scheduler.data.manipulate@" property="scheduler.data.manipulate"/>
-			<replaceFilter token="@scheduler.data.manipulate.interval@" property="scheduler.data.manipulate.interval"/>
-			<replaceFilter token="@scheduler.enquiry.data.completion@" property="scheduler.enquiry.data.completion"/>
-			<replaceFilter token="@scheduler.enquiry.data.completion.interval@" property="scheduler.enquiry.data.completion.interval"/>
-			<replaceFilter token="@scheduler.reassignment@" property="scheduler.reassignment"/>
-			<replaceFilter token="@scheduler.reassignment.interval@" property="scheduler.reassignment.interval"/>
-		</replace>
-	</target>
-
-	<target name="javacompile" depends="copyresources" description="compile the java source files">
-		<echo message="Compiling the Java Source" />
-		<!-- Compile the java code from ${src} into ${build} -->
-		<javac srcdir="${otpl.dist.src}" destdir="${otpl.class}" debug="on" deprecation="off" includeantruntime="false">
-			<classpath>
-				<fileset dir="${otpl.dist.webinf}/lib">
-					<include name="**/*.jar" />
-					<include name="**/*.zip" />
-				</fileset>
-			</classpath>
-		</javac>
-		
-		<copy todir="${otpl.class}">
-			<fileset dir="${otpl.dist.src}">
-				<include name="log4j.properties" />
-			</fileset>
-		</copy>
-		
-		<mkdir dir="${otpl.class}/in/otpl/dnb/conf" />
-		<copy todir="${otpl.class}/in/otpl/dnb/conf">
-			<fileset dir="${otpl.dist.src}/in/otpl/dnb/conf">
-				<include name="database.properties" />
-				<include name="timezones.xml" />
-				<include name="countries.xml" />
-				<include name="daylightTimes.xml" />
-				<!--<include name="iOSAPNs.p12" />-->
-				<include name="config.properties" />
-			</fileset>
-		</copy>
-
-		<mkdir dir="${otpl.class}/in/otpl/dnb/conf/resource" />
-		<copy todir="${otpl.class}/in/otpl/dnb/conf/resource">
-			<fileset dir="${otpl.dist.src}/in/otpl/dnb/conf/resource"/>
-		</copy>
-		<replace file="${otpl.dist.webinf}/spring/spring-resources.xml" propertyFile="${build.properties.file}">
-			<replaceFilter token="@config.files.location@" property="config.files.location"/>
-		</replace>
-	</target>
-	
-	<fileset dir="${catalina.home}/bin">
-		<include name="catalina-tasks.xml" />
-	</fileset>
-	
-	<target name="compile" depends="javacompile" description="Compiles Java files">
-		<echo message="Successfully completed compiling Java files ${DSTAMP}-${TSTAMP}"/>
-	</target>
-
-	<target name="war" depends="compile" description="builds the dnb.war">
-		<delete>
-			<fileset dir="${build}" includes="**/${webapp.name}*.war"/>
-		</delete>
-		<war warfile="${build}/${webapp.name}.war" webxml="${otpl.dist.webinf}/web.xml">
-			<fileset dir="${otpl.dist}" excludes="src/**" />
-		</war>
-		<copy file="${build}/${webapp.name}.war" tofile="${build}/${webapp.name}-${DSTAMP}-${TSTAMP}.war" />
-		<delete dir="${basedir}/dist" />
-	</target>
-
-	<target name="deploy" depends="war">
-		<delete file="${catalina.home}/webapps/${webapp.name}.war" />
-		<delete dir="${catalina.home}/webapps/${webapp.name}/" />
-		<copy file="${build}/${webapp.name}.war" tofile="${catalina.home}/webapps/${webapp.name}.war" />
-	</target>
-
+    
+    <target name="init">
+        <tstamp />
+        <property environment="env"/>
+        <condition property="ext" value="bat" else="sh">
+            <os family="windows"/>
+        </condition>
+        <property name="build.properties.file" value="${basedir}/build/build.properties"/>
+        <property name="webapp.name" value="dnb" />
+        <property name="build" value="build" />
+        <property name="otpl.dist" value="${basedir}/dist/${webapp.name}" />
+        <property name="otpl.dist.src" value="${otpl.dist}/src" />
+        <property name="otpl.src" value="${basedir}/src" />
+        <property name="otpl.webcontent" value="${basedir}/WebContent" />
+        <property name="otpl.dist.webinf" value="${otpl.dist}/WEB-INF" />
+        <property name="otpl.webinf" value="${otpl.webcontent}/WEB-INF" />
+        <property name="otpl.dist.resources" value="${otpl.dist}/resources" />
+        <property name="otpl.resources" value="${otpl.webcontent}/resources" />
+        <property name="otpl.dist.views" value="${otpl.dist}/views" />
+        <property name="otpl.views" value="${otpl.webcontent}/views" />
+        <property name="otpl.class" value="${otpl.dist.webinf}/classes" />
+        
+        <property name="catalina.home" value="${env.CATALINA_HOME}"/>
+    </target>
+    
+    <target name="clean">
+        <!--<delete dir="${otpl.dist}/" />-->
+        <delete dir="${basedir}/dist" />
+    </target>
+    
+    <path id="otpl.classpath">
+        <fileset dir="${omt.lib}">
+            <include name="**/*.jar" />
+            <include name="**/*.zip" />
+        </fileset>
+    </path>
+    
+    <target name="mkdirs" depends="clean,init" description="">
+        <mkdir dir="${otpl.dist}" />
+        <mkdir dir="${otpl.dist.src}" />
+        <mkdir dir="${otpl.dist.webinf}" />
+        <mkdir dir="${otpl.dist.resources}" />
+        <mkdir dir="${otpl.dist.views}" />
+        <mkdir dir="${otpl.class}" />
+    </target>
+    
+    <target name="copysrc" depends="mkdirs" description="">
+        <copy todir="${otpl.dist.src}">
+            <fileset dir="${otpl.src}" />
+        </copy>
+    </target>
+    
+    <target name="copyresources" depends="copysrc,setup_config_properties" description="">
+        <copy todir="${otpl.dist.webinf}">
+            <fileset dir="${otpl.webinf}" />
+        </copy>
+        
+        <copy todir="${otpl.dist.resources}">
+            <fileset dir="${otpl.resources}" />
+        </copy>
+        
+        <copy todir="${otpl.dist.views}">
+            <fileset dir="${otpl.views}" />
+        </copy>
+        
+        <delete dir="${otpl.class}" />
+        <mkdir dir="${otpl.class}" />
+    </target>
+    
+    <target name="setup_config_properties">
+        <delete file="${otpl.src}/in/otpl/dnb/conf/database.properties"/>
+        <copy file="${otpl.src}/in/otpl/dnb/conf/sample/database.properties.sample" toFile="${otpl.src}/in/otpl/dnb/conf/database.properties"/>
+        <replace file="${otpl.src}/in/otpl/dnb/conf/database.properties" propertyFile="${build.properties.file}">
+            <replaceFilter token="@db.drive.class.name@" property="db.drive.class.name"/>
+            <replaceFilter token="@db.url@" property="db.url"/>
+            <replaceFilter token="@db.username@" property="db.username"/>
+            <replaceFilter token="@db.password@" property="db.password"/>
+            <replaceFilter token="@db.connection.initialSize@" property="db.connection.initialSize"/>
+            <replaceFilter token="@db.connection.maxActive@" property="db.connection.maxActive"/>
+            <!-- D&B DB -->
+            <replaceFilter token="@dnb.db.url@" property="dnb.db.url"/>
+            <replaceFilter token="@dnb.db.port@" property="dnb.db.port"/>
+            <replaceFilter token="@dnb.db.name@" property="dnb.db.name"/>
+            <replaceFilter token="@dnb.db.user@" property="dnb.db.user"/>
+            <replaceFilter token="@dnb.db.password@" property="dnb.db.password"/>
+            <replaceFilter token="@dnb.db.class@" property="dnb.db.class"/>
+        </replace>
+        <delete file="${otpl.src}/in/otpl/dnb/conf/config.properties"/>
+        <copy file="${otpl.src}/in/otpl/dnb/conf/sample/config.properties.sample" toFile="${otpl.src}/in/otpl/dnb/conf/config.properties"/>
+        <replace file="${otpl.src}/in/otpl/dnb/conf/config.properties" propertyFile="${build.properties.file}">
+            <replaceFilter token="@base.server.url@" property="base.server.url"/>
+            <!-- Push -->
+            <replaceFilter token="@push.scheduler@" property="push.scheduler"/>
+            <replaceFilter token="@fcm.server.url@" property="fcm.server.url"/>
+            <replaceFilter token="@fcm.server.api.key@" property="fcm.server.api.key"/>
+            <replaceFilter token="@mobile.push.notification.scheduler.run.interval@" property="mobile.push.notification.scheduler.run.interval"/>
+            <replaceFilter token="@mobile.silent.push.notification.scheduler.run.interval@" property="mobile.silent.push.notification.scheduler.run.interval"/>
+            
+            <!-- Google Map -->
+            <replaceFilter token="@google.map.key@" property="google.map.key"/>
+            <replaceFilter token="@version@" property="version"/>
+            
+            <!-- email -->
+            <replaceFilter token="@email.scheduler@" property="email.scheduler"/>
+            <replaceFilter token="@email.scheduler.run.interval@" property="email.scheduler.run.interval"/>
+            <replaceFilter token="@email.smtp.host@" property="email.smtp.host"/>
+            <replaceFilter token="@email.smtp.port@" property="email.smtp.port"/>
+            <replaceFilter token="@email.auth@" property="email.auth"/>
+            <replaceFilter token="@email.smtp.username@" property="email.smtp.username"/>
+            <replaceFilter token="@email.smtp.password@" property="email.smtp.password"/>
+            <replaceFilter token="@email.sender.id@" property="email.sender.id"/>
+            <replaceFilter token="@email.error.to@" property="email.error.to"/>
+            <replaceFilter token="@email.error.cc@" property="email.error.cc"/>
+            <replaceFilter token="@email.error.subj@" property="email.error.subj"/>
+            <replaceFilter token="@email.support@" property="email.support"/>
+            <replaceFilter token="@email.bcc@" property="email.bcc"/>
+            <!-- SMS -->
+            <replaceFilter token="@sms.scheduler@" property="sms.scheduler"/>
+            <replaceFilter token="@sms.scheduler.run.interval@" property="sms.scheduler.run.interval"/>
+            <replaceFilter token="@sms.api.url.india@" property="sms.api.url.india"/>
+            <replaceFilter token="@sms.api.username.india@" property="sms.api.username.india"/>
+            <replaceFilter token="@sms.api.password.india@" property="sms.api.password.india"/>
+            <replaceFilter token="@sms.api.sender.india@" property="sms.api.sender.india"/>
+            <!-- Media -->
+            <replaceFilter token="@image.storage.base.directory@" property="image.storage.base.directory"/>
+            <replaceFilter token="@file.storage.base.directory@" property="file.storage.base.directory"/>
+            <replaceFilter token="@pdf.storage.base.directory@" property="pdf.storage.base.directory"/>
+            <!-- DNB Files -->
+            <replaceFilter token="@dnb.cust.id@" property="dnb.cust.id"/>
+            <replaceFilter token="@scheduler.master.data.fetch@" property="scheduler.master.data.fetch"/>
+            <replaceFilter token="@scheduler.master.data.fetch.initial.delay@" property="scheduler.master.data.fetch.initial.delay"/>
+            <replaceFilter token="@scheduler.master.data.fetch.interval@" property="scheduler.master.data.fetch.interval"/>
+            <replaceFilter token="@scheduler.enquiry.pool.fetch@" property="scheduler.enquiry.pool.fetch"/>
+            <replaceFilter token="@scheduler.enquiry.pool.fetch.interval@" property="scheduler.enquiry.pool.fetch.interval"/>
+            <replaceFilter token="@scheduler.pdf.creator@" property="scheduler.pdf.creator"/>
+            <replaceFilter token="@scheduler.pdf.creator.interval@" property="scheduler.pdf.creator.interval"/>
+            <replaceFilter token="@scheduler.data.manipulate@" property="scheduler.data.manipulate"/>
+            <replaceFilter token="@scheduler.data.manipulate.interval@" property="scheduler.data.manipulate.interval"/>
+            <replaceFilter token="@scheduler.enquiry.data.completion@" property="scheduler.enquiry.data.completion"/>
+            <replaceFilter token="@scheduler.enquiry.data.completion.interval@" property="scheduler.enquiry.data.completion.interval"/>
+            <replaceFilter token="@scheduler.reassignment@" property="scheduler.reassignment"/>
+            <replaceFilter token="@scheduler.reassignment.interval@" property="scheduler.reassignment.interval"/>
+        </replace>
+    </target>
+    
+    <target name="javacompile" depends="copyresources" description="compile the java source files">
+        <echo message="Compiling the Java Source" />
+        <!-- Compile the java code from ${src} into ${build} -->
+        <javac srcdir="${otpl.dist.src}" destdir="${otpl.class}" debug="on" deprecation="off" includeantruntime="false">
+            <classpath>
+                <fileset dir="${otpl.dist.webinf}/lib">
+                    <include name="**/*.jar" />
+                    <include name="**/*.zip" />
+                </fileset>
+            </classpath>
+        </javac>
+        
+        <copy todir="${otpl.class}">
+            <fileset dir="${otpl.dist.src}">
+                <include name="log4j.properties" />
+            </fileset>
+        </copy>
+        
+        <mkdir dir="${otpl.class}/in/otpl/dnb/conf" />
+        <copy todir="${otpl.class}/in/otpl/dnb/conf">
+            <fileset dir="${otpl.dist.src}/in/otpl/dnb/conf">
+                <include name="database.properties" />
+                <include name="timezones.xml" />
+                <include name="countries.xml" />
+                <include name="daylightTimes.xml" />
+                <!--<include name="iOSAPNs.p12" />-->
+                <include name="config.properties" />
+            </fileset>
+        </copy>
+        
+        <mkdir dir="${otpl.class}/in/otpl/dnb/conf/resource" />
+        <copy todir="${otpl.class}/in/otpl/dnb/conf/resource">
+            <fileset dir="${otpl.dist.src}/in/otpl/dnb/conf/resource"/>
+        </copy>
+        <replace file="${otpl.dist.webinf}/spring/spring-resources.xml" propertyFile="${build.properties.file}">
+            <replaceFilter token="@config.files.location@" property="config.files.location"/>
+        </replace>
+    </target>
+    
+    <fileset dir="${catalina.home}/bin">
+        <include name="catalina-tasks.xml" />
+    </fileset>
+    
+    <target name="compile" depends="javacompile" description="Compiles Java files">
+        <echo message="Successfully completed compiling Java files ${DSTAMP}-${TSTAMP}"/>
+    </target>
+    
+    <target name="war" depends="compile" description="builds the dnb.war">
+        <delete>
+            <fileset dir="${build}" includes="**/${webapp.name}*.war"/>
+        </delete>
+        <war warfile="${build}/${webapp.name}.war" webxml="${otpl.dist.webinf}/web.xml">
+            <fileset dir="${otpl.dist}" excludes="src/**" />
+        </war>
+        <copy file="${build}/${webapp.name}.war" tofile="${build}/${webapp.name}-${DSTAMP}-${TSTAMP}.war" />
+        <delete dir="${basedir}/dist" />
+    </target>
+    
+    <target name="deploy" depends="tomcat-stop, war">
+        <delete file="${catalina.home}/webapps/${webapp.name}.war" />
+        <delete dir="${catalina.home}/webapps/${webapp.name}/" />
+        <copy file="${build}/${webapp.name}.war" tofile="${catalina.home}/webapps/${webapp.name}.war" />
+        <antcall target="tomcat-start"/>
+    </target>
+    
+    <target name="tomcat-start" depends="init">
+        <exec executable="${catalina.home}/bin/startup.${ext}" spawn="true"/>
+    </target>
+    
+    <target name="tomcat-stop" depends="init">
+        <exec executable="${catalina.home}/bin/shutdown.${ext}" spawn="true"/>
+    </target>
+    
 </project>
