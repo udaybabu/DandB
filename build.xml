@@ -202,7 +202,7 @@
 		<delete dir="${basedir}/dist" />
 	</target>
 
-	<target name="deploy" depends="tomcat-stop, war">
+	<target name="deploy" depends="war">
 		<delete file="${catalina.home}/webapps/${webapp.name}.war" />
 		<delete dir="${catalina.home}/webapps/${webapp.name}/" />
 		<copy file="${build}/${webapp.name}.war" tofile="${catalina.home}/webapps/${webapp.name}.war" />
